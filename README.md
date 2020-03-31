@@ -22,7 +22,7 @@ $ docker network create nx-workshop
 $ docker run --name mymongo -p 27017:27017 --rm --network nx-workshop mongo
 $ docker run -d --name nx-workshop --network nx-workshop -p 8080:8080 -e MONGO_HOST=mongodb://mymongo:27017/dev nx-backend
 ```
-## Bonus 
+## Bonus (deadline 27.04)
 Что можно сделать в данном проекте и закинуть пр на проверку:
 * Dockerfile для frontend и настройка совместного запуска 
 * Авторизация (авторизация на строне сервера, jwt tokens)
