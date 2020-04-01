@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -35,13 +34,13 @@ public class TodoController {
     }
 
     @GetMapping("/delete")
-    public List<Todo> delete(@RequestParam("id") long id) {
+    public List<Todo> delete(@RequestParam("id") String id) {
         todoService.delete(id);
         return todoService.fetchAll();
     }
 
     @GetMapping("/changeStatus")
-    public void changeStatus(@RequestParam("id") long id) {
+    public void changeStatus(@RequestParam("id") String id) {
         todoService.changeStatus(id);
     }
 }

@@ -1,7 +1,6 @@
 package com.nexign.springworkshop.service;
 
 import com.nexign.springworkshop.dao.IDao;
-import com.nexign.springworkshop.dao.TodoDao;
 import com.nexign.springworkshop.dto.Todo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +21,7 @@ public class TodoService {
         return todoDao.addTodo(todo);
     }
 
-    public void delete(long id) {
+    public void delete(String id) {
         todoDao.delete(id);
     }
 
@@ -30,7 +29,7 @@ public class TodoService {
         return todoDao.fetchAll();
     }
 
-    public void changeStatus(long id) {
+    public void changeStatus(String id) {
         todoDao.changeStatus(id);
     }
 }

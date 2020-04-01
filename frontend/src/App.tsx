@@ -4,7 +4,7 @@ import './App.css';
 interface IProps {}
 
 interface ITodo {
-  id: number;
+  id: string;
   title: string;
   status: boolean;
 }
@@ -63,7 +63,7 @@ class TodoApp extends React.Component<IProps, IState> {
       })
   }
   
-  _handleRemoveItem(id: number) : void {
+  _handleRemoveItem(id: string) : void {
       fetch('http://localhost:8080/delete?id=' + id)
       .then((resp) => resp.json())
       .then((data) => {

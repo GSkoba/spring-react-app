@@ -10,7 +10,7 @@ public interface IDao {
 
     public List<Todo> fetchAll();
 
-    public void delete(long id);
+    public void delete(String id);
 
-    public void changeStatus(long id);
+    public void changeStatus(String id);
 }

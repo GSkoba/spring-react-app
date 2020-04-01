@@ -2,10 +2,10 @@ package com.nexign.springworkshop.dao;
 
 import com.nexign.springworkshop.dto.Todo;
 import com.nexign.springworkshop.dto.TodoRepositories;
+import org.bson.types.ObjectId;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 
 public class TodoDaoMongo implements IDao {
 
@@ -15,14 +15,11 @@ public class TodoDaoMongo implements IDao {
         this.repositories = repositories;
     }
 
-    private static Random random = new Random();
-
     @Override
     public Todo addTodo(Todo todo) {
-        long id = System.currentTimeMillis() >> random.nextInt(4);
+        String id = new ObjectId().toString();
         todo.setId(id);
-        repositories.save(todo);
-        return todo;
+        return repositories.save(todo);
     }
 
     @Override
@@ -31,12 +28,12 @@ public class TodoDaoMongo implements IDao {
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(String id) {
         repositories.deleteById(id);
     }
 
     @Override
-    public void changeStatus(long id) {
+    public void changeStatus(String id) {
         Optional<Todo> opTodo = repositories.findById(id);
         opTodo.ifPresent(todo -> {
             todo.setStatus(!todo.isStatus());

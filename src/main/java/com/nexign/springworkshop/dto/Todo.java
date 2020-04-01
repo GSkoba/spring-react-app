@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Builder
 public class Todo {
     @Id
-    private long id;
+    private String id;
     private String title;
     private boolean status;
 }
